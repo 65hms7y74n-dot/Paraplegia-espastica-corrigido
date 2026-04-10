@@ -395,7 +395,8 @@ function processResult(exam, userGeneInput) {
     resultsDiv.prepend(card);
 }
 
-function generateHtmlFromCSV(title, csvText) {
+
+  function generateHtmlFromCSV(title, csvText) {
     const rows = csvText.trim().split("\n");
     let html = `<strong>${title}</strong><div class="result-table-container"><table class="result-table"><thead><tr>`;
     
@@ -405,12 +406,9 @@ function generateHtmlFromCSV(title, csvText) {
     headers.forEach(h => html += `<th>${h.trim()}</th>`);
     html += '</tr></thead><tbody>';
     
-    for(let i=1; i<rows.length; i++) {
-        let cols = rows[i].split(separator);
-        // Ajustado para destacar tanto AP4M1 quanto SPG11, dependendo do arquivo CSV fornecido
-        let isHighlight = cols.some(c => c.toUpperCase().includes("AP4M1") || c.toUpperCase().includes("SPG11"));
-        
-        html += `<tr class="${isHighlight ? 'highlight-variant' : ''}">`;
+    for (let i = 1; i < rows.length; i++) {
+        const cols = rows[i].split(separator);
+        html += '<tr>';
         cols.forEach(c => html += `<td>${c.trim()}</td>`);
         html += '</tr>';
     }
