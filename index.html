@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Diagnóstico Genético</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div id="password-container">
+        <div class="login-box">
+            <h1 class="login-logo">🧬</h1>
+            <h2 style="color:var(--primary);">Acesso ao Desafio</h2>
+            <p style="color:#64748b; margin-bottom: 20px;">Digite a senha para iniciar a simulação.</p>
+            <input type="password" id="password-input" placeholder="Senha">
+            <button id="password-button">Entrar</button>
+            <p id="login-error" style="display:none; color:#ef4444; margin-top: 15px;">Senha incorreta.</p>
+        </div>
+    </div>
+
+    <div id="game-container" style="display:none;">
+        <header class="header-fixed">
+            <div class="header-info">
+                <h1>Caso Clínico: Paraplegia Espástica</h1>
+                <p>Paciente: Lactente (1 ano e 6 meses, masculino)</p>
+            </div>
+            
+            <div id="wallet-display" class="wallet-card">
+                <span class="wallet-label">Orçamento</span>
+                <span id="total-money">R$ ---</span>
+            </div>
+        </header>
+
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="switchTab('caso')">Histórico</button>
+            <button class="tab-btn" onclick="switchTab('exames')">Solicitar Exames</button>
+            <button class="tab-btn" onclick="switchTab('resultados')" id="tab-btn-resultados">
+                Resultados
+                <span id="notification-badge" class="badge-dot"></span>
+            </button>
+        </nav>
+
+        <div id="tab-caso" class="tab-content active">
+            <div class="card">
+                <h2 style="color: var(--primary); border-bottom: 2px solid #e2e8f0; padding-bottom: 10px;">Relatório de Encaminhamento Médico</h2>
+                
+                <h4 style="color: #475569; margin-top: 20px;">Identificação:</h4>
+                <p class="case-text">
+                    Lactente do sexo masculino, atualmente com 1 ano e 6 meses de idade. Encaminhado ao serviço de genética médica para investigação de condição neurológica com provável base genética.
+                </p>
+
+                <h4 style="color: #475569; margin-top: 20px;">História da Doença Atual:</h4>
+                <p class="case-text">
+                    Os pais relatam que, desde os primeiros meses de vida, o bebê apresentava menor tônus muscular do que o esperado. Aos 4 meses, ele ainda não sustentava bem a cabeça, e aos 6 meses não rolava nem fazia movimentos coordenados com os braços e pernas. Aos 8 meses, diante da persistência do atraso motor, a família procurou atendimento pediátrico, sendo então iniciado acompanhamento neurológico.
+                </p>
+                <p class="case-text">
+                    Com 10 meses, o paciente permanecia hipotônico axialmente, sem conseguir sentar sem apoio, e passou a apresentar rigidez nos membros inferiores (espasticidade). Os pais descrevem que ele "estica as pernas e cruza uma sobre a outra" quando tentam colocá-lo de pé com suporte. Também foi notada maior rigidez nos braços e aumento progressivo da resposta aos reflexos.
+                </p>
+                <p class="case-text">
+                    A linguagem é ausente até o momento; não há balbucios significativos. Os pais relatam que ele sorri pouco, mas frequentemente emite sons repetitivos e apresenta episódios de risadas imotivadas. Interage com os familiares de forma limitada, respondendo ocasionalmente a estímulos visuais e auditivos. Movimentos repetitivos das mãos, como torcer os dedos ou bater palmas de maneira estereotipada, são observados diariamente.
+                </p>
+                <p class="case-text">
+                    Aos 14 meses, teve um episódio de convulsão febril. Embora o episódio não tenha se repetido até o momento, permanece em investigação com EEG agendado. Atualmente, aos 18 meses, o paciente não consegue andar, engatinhar ou se sustentar em pé mesmo com apoio. Sustenta a cabeça com dificuldade e apresenta espasticidade mais evidente em membros inferiores, com padrão em tesoura, clônus bilateral e sinal de Babinski positivo.
+                </p>
+
+                <h4 style="color: #475569; margin-top: 20px;">Antecedentes pessoais e familiares:</h4>
+                <ul style="list-style-type: disc; margin-left: 20px; color: #334155; line-height: 1.6;">
+                    <li>Nascimento a termo, parto vaginal, sem intercorrências perinatais.</li>
+                    <li>Peso ao nascer: 3.150g; comprimento: 50 cm; PC: 33,5 cm (−1,5 DP).</li>
+                    <li>Não houve internações neonatais ou intercorrências infecciosas relevantes.</li>
+                    <li>Sem histórico familiar conhecido de quadros semelhantes. Pais não relatam parentesco.</li>
+                </ul>
+
+                <h4 style="color: #475569; margin-top: 20px;">Exame físico (1 ano e 6 meses):</h4>
+                <ul style="list-style-type: disc; margin-left: 20px; color: #334155; line-height: 1.6;">
+                    <li>Peso e estatura no percentil 25; perímetro cefálico: 45 cm (−2,5 DP).</li>
+                    <li>Hipotonia axial com espasticidade em membros, mais acentuada nos inferiores.</li>
+                    <li>Hiperreflexia difusa, clônus, e sinal de Babinski bilateral.</li>
+                    <li>Sinais sugestivos de microcefalia secundária.</li>
+                    <li>Estereotipias motoras com as mãos.</li>
+                </ul>
+
+                <h4 style="color: #475569; margin-top: 20px;">Exames realizados:</h4>
+                <p class="case-text">
+                    <strong>Ressonância magnética de crânio (15 meses):</strong> afinamento do corpo caloso, hipomielinização da substância branca periventricular e ventriculomegalia colpocefálica.
+                </p>
+                <p class="case-text">
+                    <strong>EEG:</strong> em agendamento.
+                </p>
+
+                <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; margin-top: 25px;">
+                    <h4 style="color: #334155; margin-top: 0; text-align: center;">Heredograma</h4>
+                    <img src="heredograma.png" alt="Heredograma" style="width:100%; max-width:600px; display:block; margin: 15px auto 0;" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <div class="card highlight" style="background-color: #f0f9ff; border-left: 5px solid #0ea5e9;">
+                <h3 style="margin-top: 0;">Encaminhamento</h3>
+                <p class="case-text">
+                    Em vista do conjunto de achados clínicos e radiológicos, tais como atraso motor global, espasticidade com padrão em membros inferiores e alterações neuroimagem, o caso é considerado compatível com uma forma de paraplegia espástica hereditária de início precoce. Solicita-se investigação molecular específica para elucidação diagnóstica.
+                </p>
+            </div>
+        </div>
+
+        <div id="tab-exames" class="tab-content">
+            <div class="section-title">
+                <h3>Catálogo de Exames</h3>
+                <p>O orçamento é limitado, escolha com sabedoria.</p>
+            </div>
+            
+            <div class="exams-layout">
+                <div id="categories-list" class="categories-sidebar"></div>
+                <div class="exams-area">
+                    <h4 id="selected-category-title" style="margin-top:0; color:var(--primary);">Selecione um tipo de exame</h4>
+                    <div id="exams-grid" class="exams-grid"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-resultados" class="tab-content">
+            <div id="results">
+                <div class="empty-state">
+                    <p>Nenhum exame solicitado.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Simulação Genética Médica</p>
+            <p id="timestamp"></p>
+        </footer>
+    </div>
+
+    <div id="sanger-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h3>Requisição de Sequenciamento Sanger</h3>
+            <p>Especifique o gene alvo:</p>
+            <input type="text" id="sanger-gene-input" placeholder="Gene" class="gene-input">
+            <div class="modal-actions">
+                <button class="cancel-btn" onclick="closeSangerModal()">Cancelar</button>
+                <button class="confirm-btn" onclick="confirmSangerRequest()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+</body>
+</html>
